@@ -4,10 +4,16 @@
 
 import 'dart:html';
 
+ButtonElement genButton;
+
 void main() {
   querySelector('#inputName').onInput.listen(updateBadge);
+  genButton = querySelector('#generateButton');
+  genButton.onClick.listen(generateBadge);
 }
 
 void updateBadge(Event e) {
   querySelector('#badgeName').text = (e.target as InputElement).value;
 }
+
+
