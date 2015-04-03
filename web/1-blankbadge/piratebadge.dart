@@ -13,7 +13,21 @@ void main() {
 }
 
 void updateBadge(Event e) {
-  querySelector('#badgeName').text = (e.target as InputElement).value;
+  String inputName = (e.target as InputElement).value;
+  setBadgeName(inputName);
+  if (inputName.trim().isEmpty) {
+    genButton ..disabled = false
+              ..text  = 'Aye! Gimme a Name';
+  } else {
+    genButton ..disabled = true
+              ..text = 'Arrr! Write yer name!';
+  }
 }
 
+void setBadgeName(String newName) {
+  querySelector('#badgeName').text = newName;
+}
 
+void generateBadge(Event e) {
+  setBadgeName('Anne Bonney');
+}
